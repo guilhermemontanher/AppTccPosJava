@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data />
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_view"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <Spinner
+                android:id="@+id/spinnerMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#a6a6a6"
+                android:entries="@array/request_type" />
+
+            <EditText
+                android:id="@+id/editTextUrl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/url"
+                android:inputType="textUri"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text=""
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/baseline_link_black_18"
+                android:drawableStart="@drawable/baseline_link_black_18" />
+
+            <ImageButton
+                android:id="@+id/imageButtonSend"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="#00000000"
+                android:contentDescription="@string/send"
+                app:srcCompat="@drawable/baseline_send_black_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/edit_text_param_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/url"
+                        android:inputType="textUri"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text=""/>
+
+                    <EditText
+                        android:id="@+id/edit_text_param_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/value"
+                        android:inputType="textUri"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:text="" />
+                </LinearLayout>
+
+                <ListView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="200dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textViewOutPut"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f6f6f6"
+                android:text="" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
