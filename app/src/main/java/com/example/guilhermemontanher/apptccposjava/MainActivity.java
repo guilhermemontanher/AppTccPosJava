@@ -97,8 +97,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewButto
     @Override
     public void onClick(int position) {
         paramList.remove(position);
-        //Teste
-        if(true){}
         recyclerAdapterParams.notifyDataSetChanged();
     }
 }
