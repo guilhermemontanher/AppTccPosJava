@@ -91,12 +91,14 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewButto
 
         recyclerAdapterParams = new RecyclerAdapterParams(this, paramList);
         binding.recyclerViewParam.setAdapter(recyclerAdapterParams);
-
+        recyclerAdapterParams.setOnClickRecyclerViewButtonClick(this);
     }
 
     @Override
     public void onClick(int position) {
         paramList.remove(position);
-        recyclerAdapterParams.notifyItemChanged(position);
+        //Teste
+        if(true){}
+        recyclerAdapterParams.notifyDataSetChanged();
     }
 }

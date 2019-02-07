@@ -68,7 +68,7 @@ public class RecyclerAdapterParams extends RecyclerView.Adapter<RecyclerAdapterP
     }
 
 
-    public void setOnClickConfiguracao(RecyclerViewButtonClick recyclerViewButtonClick) {
+    public void setOnClickRecyclerViewButtonClick(RecyclerViewButtonClick recyclerViewButtonClick) {
         this.recyclerViewButtonClick = recyclerViewButtonClick;
     }
 }
