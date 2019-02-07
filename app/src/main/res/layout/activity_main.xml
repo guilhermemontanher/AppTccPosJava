@@ -5,8 +5,7 @@
 
     <data />
 
-    <LinearLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,15 +33,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableStart="@drawable/baseline_link_black_18"
+                android:drawableLeft="@drawable/baseline_link_black_18"
+                android:drawablePadding="8dp"
                 android:ems="10"
                 android:hint="@string/url"
                 android:inputType="textUri"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:text=""
-                android:drawablePadding="8dp"
-                android:drawableLeft="@drawable/baseline_link_black_18"
-                android:drawableStart="@drawable/baseline_link_black_18" />
+                android:text="" />
 
             <ImageButton
                 android:id="@+id/imageButtonSend"
@@ -50,10 +49,13 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:background="#00000000"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:contentDescription="@string/send"
                 app:srcCompat="@drawable/baseline_send_black_24" />
         </LinearLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/design_default_color_primary_dark"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,12 +63,18 @@
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-            <LinearLayout android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:orientation="vertical">
 
+                <TextView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:text="@string/params"/>
+
                 <LinearLayout
-                    android:padding="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -76,11 +84,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="@string/url"
+                        android:hint="@string/name"
                         android:inputType="textUri"
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
-                        android:text=""/>
+                        android:text="" />
 
                     <EditText
                         android:id="@+id/edit_text_param_value"
@@ -92,20 +100,34 @@
                         android:paddingLeft="8dp"
                         android:paddingRight="8dp"
                         android:text="" />
+
+                    <ImageButton
+                        android:id="@+id/button_add_param"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                        android:src="@drawable/baseline_add_black_24" />
                 </LinearLayout>
 
-                <ListView android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="200dp"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_param"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
+
+            <View android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/design_default_color_primary_dark"/>
 
             <TextView
                 android:id="@+id/textViewOutPut"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#f6f6f6"
-                android:text="" />
+                android:textAlignment="center"
+                android:gravity="center"
+                android:text="no data" />
         </LinearLayout>
 
     </LinearLayout>
