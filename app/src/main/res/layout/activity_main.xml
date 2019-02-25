@@ -5,63 +5,65 @@
 
     <data />
 
-    <android.support.v4.widget.NestedScrollView
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-        <LinearLayout xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/root_view"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:context=".MainActivity">
+            android:background="@color/background_view"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
 
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
+            <Spinner
+                android:id="@+id/spinnerMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccentLigth"
+                android:entries="@array/request_type" />
+
+            <EditText
+                android:id="@+id/editTextUrl"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/background_view"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                tools:ignore="MissingConstraints">
+                android:layout_weight="1"
+                android:drawableStart="@drawable/baseline_link_black_18"
+                android:drawableLeft="@drawable/baseline_link_black_18"
+                android:drawablePadding="8dp"
+                android:ems="10"
+                android:hint="@string/url"
+                android:inputType="textUri"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="http://fipeapi.appspot.com/api/1/carros/marcas.json" />
 
-                <Spinner
-                    android:id="@+id/spinnerMethod"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="#a6a6a6"
-                    android:entries="@array/request_type" />
+            <ImageButton
+                android:id="@+id/imageButtonSend"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:contentDescription="@string/send"
+                android:tint="@color/colorAccent"
+                app:srcCompat="@drawable/baseline_send_black_24" />
+        </LinearLayout>
 
-                <EditText
-                    android:id="@+id/editTextUrl"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableStart="@drawable/baseline_link_black_18"
-                    android:drawableLeft="@drawable/baseline_link_black_18"
-                    android:drawablePadding="8dp"
-                    android:ems="10"
-                    android:hint="@string/url"
-                    android:inputType="textUri"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:text="" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/design_default_color_primary_dark" />
 
-                <ImageButton
-                    android:id="@+id/imageButtonSend"
-                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:contentDescription="@string/send"
-                    app:srcCompat="@drawable/baseline_send_black_24" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/design_default_color_primary_dark" />
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f6f6f6">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,7 +81,55 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="8dp"
-                        android:text="@string/params" />
+                        android:text="@string/authentication"
+                        android:textColor="@color/colorAccentDark" />
+
+                    <Spinner
+                        android:id="@+id/spinner_auth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/auth_type" />
+
+                    <LinearLayout
+                        android:id="@+id/view_basic_auth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/edit_text_username"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/username"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:text="" />
+
+                        <EditText
+                            android:id="@+id/edit_text_password"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/password"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/design_default_color_primary_dark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:text="@string/params"
+                        android:textColor="@color/colorAccentDark" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -128,16 +178,13 @@
                     android:layout_height="1px"
                     android:background="@color/design_default_color_primary_dark" />
 
-                <TextView
-                    android:id="@+id/textViewOutPut"
+                <WebView
+                    android:id="@+id/web_view_page"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#f6f6f6"
-                    android:gravity="center"
-                    android:text="no data"
-                    android:textAlignment="center" />
+                    android:gravity="center" />
             </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
 
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
 </layout>
