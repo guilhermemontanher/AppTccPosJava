@@ -41,7 +41,7 @@
                 android:inputType="textUri"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:text="http://fipeapi.appspot.com/api/1/carros/marcas.json" />
+                android:text="http://192.168.0.100:3000/servertest/file" />
 
             <ImageButton
                 android:id="@+id/imageButtonSend"

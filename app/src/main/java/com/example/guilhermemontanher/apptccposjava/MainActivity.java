@@ -35,7 +35,9 @@ import com.example.guilhermemontanher.apptccposjava.view.adapter.RecyclerAdapter
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewButto
                 startTime = SystemClock.elapsedRealtime();
                 StringRequest stringRequest = new StringRequest(method, url,
                         new Response.Listener<String>() {
-                            @SuppressLint("SetJavaScriptEnabled")
+                            @SuppressLint({"SetJavaScriptEnabled", "SimpleDateFormat"})
                             @Override
                             public void onResponse(String response) {
                                 endTime = SystemClock.elapsedRealtime();
@@ -82,13 +84,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewButto
                                 binding.webViewPage.loadDataWithBaseURL("", response, "text/html", "UTF-8", "");
                                 StringBuilder output = new StringBuilder();
                                 output.append("Successful requisition!\r\n");
-                                output.append("Volley time - " + String.valueOf(endTime - startTime));
-                                Snackbar.make(binding.rootView, "Successful requisition!", Snackbar.LENGTH_LONG).show();
+                                output.append("Resquest time - " + String.valueOf(new SimpleDateFormat("ss.SSS").format(new Date(endTime - startTime))));
+                                Snackbar.make(binding.rootView, output, Snackbar.LENGTH_LONG).show();
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        final Snackbar snackBar = Snackbar.make(binding.rootView, "That didn't work!", Snackbar.LENGTH_INDEFINITE);
+                        final Snackbar snackBar = Snackbar.make(binding.rootView, "That didn't work!", Snackbar.LENGTH_LONG);
                         snackBar.setAction("Try again", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
