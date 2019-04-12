@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Volley Resquest App</string>
+    <string name="app_name">Volley Terminal</string>
     <string name="url">Url</string>
     <string name="send">Send</string>
     <string name="value">Value</string>
